@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:id="@+id/drawer">
+
+<!--  DrawerLayout : 왼쪽에서 나오는 메뉴의 형태  -->
+<!--  첫번째 자식뷰 : 화면에 출력할 뷰  -->
+<!--  두번째 자식뷰 : DrawerLayout 적용될 뷰, Lyaout_gravity 속성을 start로 설정 해준다  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recylerView"/>
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewPager"/>
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="아이템 추가"-->
+<!--        android:id="@+id/addItem"/>-->
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="아이템 제거"-->
+<!--        android:id="@+id/removeItem"/>-->
+    </LinearLayout>
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:text="아무단어나 입력하기"
+        android:textSize="30sp"
+        android:layout_gravity="start"
+        android:background="#CDDC39"/>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
