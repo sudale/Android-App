@@ -13,4 +13,36 @@
         android:text="홈 화면으로 이동"
         android:id="@+id/goHome"/>
 
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="show btn"
+        android:id="@+id/showBtn"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hide btn"
+        android:id="@+id/hideBtn"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#F44336"
+        android:text="text1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#CDDC39"
+        android:text="text2"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#FFC107"
+        android:text="text3"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editView"/>
+
+
 </LinearLayout>

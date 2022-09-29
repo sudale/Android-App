@@ -8,9 +8,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BusanItAndroid">
+<!--    소프트키보드 올라올때 화면 설정 : windowSoftInputMode 속성 이용    -->
         <activity
             android:name=".TwoActivity"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustUnspecified">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

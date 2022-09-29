@@ -5,12 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="horizontal">
-
+    android:orientation="vertical">
+<!--  인텐트 테스트  -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="두번째 페이지로 이동"
         android:id="@+id/goTwo"/>
+
+<!--  액티비티 생명주기에서 상태값 저장  -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cntText"
+        android:textSize="30sp"
+        android:layout_gravity="center"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="count"
+        android:id="@+id/cntBtn"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

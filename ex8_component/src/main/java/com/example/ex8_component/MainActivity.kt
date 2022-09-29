@@ -11,6 +11,7 @@ import com.example.ex8_component.databinding.ActivityMainBinding
 import java.time.LocalDate
 
 class MainActivity : AppCompatActivity() {
+    var cnt = 0
     override fun onDestroy() {
         // 액티비티가 종료(비활성화) 될때
         Log.d("myLog","onDestroy")
@@ -76,6 +77,17 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("data2", 1)
             requestLauncher.launch(intent)
         }
+
+        // 액티비티 상태값 저장
+        val data = savedInstanceState?.getInt("cnt")
+        if (data != null){
+            cnt = data
+            binding.cntText.text = cnt.toString()
+        }
+        binding.cntBtn.setOnClickListener {
+            cnt += 1
+            binding.cntText.text = cnt.toString()
+        }
     }
     // 데이터를 다시 돌려받을때 1
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -84,5 +96,18 @@ class MainActivity : AppCompatActivity() {
             val result = data?.getStringExtra("result")
             Log.d("myLog","데이터 돌려받기 1 : ${result}")
         }
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        // 번들 객체에 저장된 데이터 가져오기
+        cnt = savedInstanceState.getInt("cnt")
+        Log.d("myLog","번들객체에 저장된 데이터 : ${cnt}")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        // 번들 객체에 데이터 저장
+        outState.putInt("cnt",cnt)
     }
 }
