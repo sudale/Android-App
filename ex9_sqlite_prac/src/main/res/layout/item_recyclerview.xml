@@ -20,4 +20,19 @@
         android:textSize="16dp"
         android:layout_marginLeft="24dp"
         />
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:text="수정"
+        android:textSize="15sp"
+        android:id="@+id/update_btn"
+        android:visibility="gone"/>
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:text="삭제"
+        android:textSize="15sp"
+        android:id="@+id/del_btn"/>
+
 </LinearLayout>

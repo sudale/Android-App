@@ -20,22 +20,28 @@ class AddActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
-        R.id.menu_add_save ->{
-            // 데이터 베이스에 저장 및 intent에 저장한 데이터 담아서 화면에 전달
-            val inputData = binding.addEditView.text.toString()
-            val db = DBHelper(this).writableDatabase
-            db.execSQL(
-                "insert into TODO_TB(todo)values(?)",
-                arrayOf<String>(inputData)
-            )
-            db.close()
-            val intent = intent
-            intent.putExtra("result",inputData)
-            setResult(Activity.RESULT_OK,intent)
-            finish()
-            true
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.menu_add_save -> {
+                val intent = intent
+                val todoText = binding.addEditView.text.toString()
+
+                if(todoText.isBlank()){
+                    //할일 입력값이 없을때
+                    setResult(Activity.RESULT_CANCELED, intent)
+                }else{
+                    //할일 입력값이 있을때
+                    //데이터 베이스 연동해서 inser문 작성
+                    val db = DBHelper(this).writableDatabase
+                    db.execSQL("insert into TODO_TB(todo) values(?)", arrayOf(todoText))
+                    db.close()
+                    intent.putExtra("result",todoText)
+                    setResult(Activity.RESULT_OK,intent)
+                }
+                finish()
+                return true
+            }
         }
-        else -> true
+        return super.onOptionsItemSelected(item)
     }
 }
